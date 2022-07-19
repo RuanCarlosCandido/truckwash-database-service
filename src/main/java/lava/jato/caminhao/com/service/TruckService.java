@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TruckService {
@@ -71,4 +70,5 @@ public class TruckService {
     public Truck getByTruckPlate(String truck_plate) {
         return repo.findByTruckPlate(truck_plate).orElseThrow(() -> new TruckNotFoundException(ERROR_MESSAGE));
     }
+    
 }

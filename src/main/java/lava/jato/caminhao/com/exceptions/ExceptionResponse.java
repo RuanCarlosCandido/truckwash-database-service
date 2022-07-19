@@ -50,10 +50,6 @@ public class ExceptionResponse implements Serializable {
         this.details = details;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(date, details, message);
