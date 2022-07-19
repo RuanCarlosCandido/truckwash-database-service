@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/trucks")
 public class TruckController {
