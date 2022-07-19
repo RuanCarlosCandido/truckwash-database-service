@@ -70,4 +70,5 @@ public class TruckService {
     public Truck getByTruckPlate(String truck_plate) {
         return repo.findByTruckPlate(truck_plate).orElseThrow(() -> new TruckNotFoundException(ERROR_MESSAGE));
     }
+    
 }
