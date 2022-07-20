@@ -55,6 +55,10 @@ public class TruckService {
         if (driverName != null)
             truck.setDriverName(driverName);
 
+        Timestamp lastWash = updateTruck.getLastWash();
+        if (lastWash != null)
+            truck.setLastWash(lastWash);
+
         Timestamp nextWash = updateTruck.getNextWash();
         if (nextWash != null)
             truck.setNextWash(nextWash);
