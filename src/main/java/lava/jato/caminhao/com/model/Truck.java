@@ -29,11 +29,11 @@ public class Truck implements Serializable {
 
     @Column(name = "last_wash")
 	@JsonProperty("last_wash")
-    private Timestamp lastWash = Timestamp.from(Instant.now());
+    private Timestamp lastWash;
 
     @Column(name = "next_wash")
 	@JsonProperty("next_wash")
-    private Timestamp nextWash = Timestamp.from(Instant.now());
+    private Timestamp nextWash;
 
     @Column(name = "driver_name")
 	@JsonProperty("driver_name")
