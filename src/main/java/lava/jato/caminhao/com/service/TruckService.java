@@ -36,7 +36,7 @@ public class TruckService {
     }
 
     private void adjustNextWashDate(Truck truck) {
-        if(truck.getLastWash()!=null) {
+        if (truck.getLastWash() != null) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(truck.getLastWash());
             cal.add(Calendar.DAY_OF_WEEK, 7);
@@ -56,15 +56,16 @@ public class TruckService {
         if (driverName != null)
             truck.setDriverName(driverName);
 
-        Timestamp nextWash = updateTruck.getNextWash();
-        if (nextWash != null)
-            truck.setNextWash(nextWash);
-
-        adjustNextWashDate(truck);
 
         Timestamp lastWash = updateTruck.getLastWash();
         if (lastWash != null)
             truck.setLastWash(lastWash);
+
+        adjustNextWashDate(truck);
+
+        Timestamp nextWash = updateTruck.getNextWash();
+        if (nextWash != null)
+            truck.setNextWash(nextWash);
 
         return saveTruck(truck);
     }
@@ -77,5 +78,5 @@ public class TruckService {
     public Truck getByTruckPlate(String truck_plate) {
         return repo.findByTruckPlate(truck_plate).orElseThrow(() -> new TruckNotFoundException(ERROR_MESSAGE));
     }
-    
+
 }
