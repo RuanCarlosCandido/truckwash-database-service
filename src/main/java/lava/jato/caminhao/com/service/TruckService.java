@@ -27,7 +27,7 @@ public class TruckService {
     }
 
     public Truck addTruck(Truck truck) {
-        adjustNextWashDate(truck);
+
         return saveTruck(truck);
     }
 
@@ -51,17 +51,20 @@ public class TruckService {
         if (truckCompany != null)
             truck.setTruckCompany(truckCompany);
 
+
         String driverName = updateTruck.getDriverName();
         if (driverName != null)
             truck.setDriverName(driverName);
 
-        Timestamp lastWash = updateTruck.getLastWash();
-        if (lastWash != null)
-            truck.setLastWash(lastWash);
-
         Timestamp nextWash = updateTruck.getNextWash();
         if (nextWash != null)
             truck.setNextWash(nextWash);
+
+        adjustNextWashDate(truck);
+
+        Timestamp lastWash = updateTruck.getLastWash();
+        if (lastWash != null)
+            truck.setLastWash(lastWash);
 
         return saveTruck(truck);
     }
