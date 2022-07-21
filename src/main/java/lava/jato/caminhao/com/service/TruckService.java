@@ -63,9 +63,9 @@ public class TruckService {
 
         adjustNextWashDate(truck);
 
-        Timestamp nextWash = updateTruck.getNextWash();
-        if (nextWash != null)
-            truck.setNextWash(nextWash);
+//        Timestamp nextWash = updateTruck.getNextWash();
+//        if (nextWash != null)
+//            truck.setNextWash(nextWash);
 
         return saveTruck(truck);
     }
