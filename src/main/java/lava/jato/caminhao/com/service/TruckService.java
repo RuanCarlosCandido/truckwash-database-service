@@ -29,12 +29,12 @@ public class TruckService {
         return repo.findAll();
     }
 
-    public Truck addTruck(Truck truck) throws IOException {
+    public Truck addTruck(Truck truck) {
 
         if(repo.findByTruckPlate(truck.getTruckPlate() )!= null)
             return saveTruck(truck);
 
-        throw new IOException("Caminhão já registrado");
+        return null;
     }
 
     private Truck saveTruck(Truck truck) {
