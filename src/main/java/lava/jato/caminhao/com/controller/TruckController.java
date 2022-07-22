@@ -25,7 +25,7 @@ public class TruckController {
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Truck addTruck(@RequestBody Truck truck)  {
+    public Truck addTruck(@RequestBody Truck truck) throws IOException {
         return truckService.addTruck(truck);
     }
 
