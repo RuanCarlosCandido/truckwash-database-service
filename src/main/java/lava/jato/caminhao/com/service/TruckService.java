@@ -9,9 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TruckService {
@@ -26,9 +29,12 @@ public class TruckService {
         return repo.findAll();
     }
 
-    public Truck addTruck(Truck truck) {
+    public Truck addTruck(Truck truck) throws IOException {
 
-        return saveTruck(truck);
+        if(repo.findByTruckPlate(truck.getTruckPlate() )!= null)
+            return saveTruck(truck);
+
+        throw new IOException("Caminhão já registrado");
     }
 
     private Truck saveTruck(Truck truck) {

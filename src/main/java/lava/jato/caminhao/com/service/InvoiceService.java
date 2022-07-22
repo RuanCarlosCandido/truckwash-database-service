@@ -16,6 +16,7 @@ public class InvoiceService {
     InvoiceRepository repo;
 
     public Invoice saveInvoice(Invoice invoice) {
+        //validar se a placa existe
         return repo.save(invoice);
     }
 }
