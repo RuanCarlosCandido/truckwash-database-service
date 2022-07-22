@@ -31,7 +31,7 @@ public class TruckService {
 
     public Truck addTruck(Truck truck) throws IOException {
 
-        if(repo.findByTruckPlate(truck.getTruckPlate() )!= null)
+        if(repo.findByTruckPlate(truck.getTruckPlate() )== null)
             return saveTruck(truck);
 
         throw new IOException("Caminhão já registrado");
