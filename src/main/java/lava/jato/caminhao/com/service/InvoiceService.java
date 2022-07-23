@@ -1,5 +1,6 @@
 package lava.jato.caminhao.com.service;
 
+import lava.jato.caminhao.com.exceptions.TruckNotFoundException;
 import lava.jato.caminhao.com.model.Invoice;
 import lava.jato.caminhao.com.repository.InvoiceRepository;
 import lava.jato.caminhao.com.repository.TruckRepository;
@@ -21,10 +22,11 @@ public class InvoiceService {
     @Autowired
     TruckRepository truckRepo;
 
+    public static final String ERROR_MESSAGE = "Placa de caminhão não localizada, garanta que essa placa está registrada";
 
-    public Invoice saveInvoice(Invoice invoice) throws IOException {
-        if(truckRepo.findByTruckPlate(invoice.getTruckPlate() )== null)
-            throw new IOException("Esta placa é inválida");
+    public Invoice saveInvoice(Invoice invoice) throws TruckNotFoundException {
+        if(truckRepo.findByTruckPlate(invoice.getTruckPlate())== null)
+            throw new TruckNotFoundException("Esta placa é inválida");
 
         return invoiceRepo.save(invoice);
     }

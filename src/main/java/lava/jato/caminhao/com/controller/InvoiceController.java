@@ -1,6 +1,7 @@
 package lava.jato.caminhao.com.controller;
 
 
+import lava.jato.caminhao.com.exceptions.TruckNotFoundException;
 import lava.jato.caminhao.com.model.Invoice;
 import lava.jato.caminhao.com.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class InvoiceController {
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Invoice saveInvoice(@RequestBody Invoice invoice) throws IOException {
+    public Invoice saveInvoice(@RequestBody Invoice invoice) throws TruckNotFoundException {
         return invoiceService.saveInvoice(invoice);
     }
 
