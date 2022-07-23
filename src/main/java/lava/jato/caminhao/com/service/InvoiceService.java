@@ -25,7 +25,7 @@ public class InvoiceService {
     public static final String ERROR_MESSAGE = "Placa de caminhão não localizada, garanta que essa placa está registrada";
 
     public Invoice saveInvoice(Invoice invoice) throws TruckNotFoundException {
-        truckRepo.findByTruckPlate(invoice.getTruckPlate()).orElseThrow(() -> new TruckNotFoundException("ERROR_MESSAGE"));
+        truckRepo.findByTruckPlate(invoice.getTruckPlate()).orElseThrow(() -> new TruckNotFoundException(ERROR_MESSAGE));
 
         return invoiceRepo.save(invoice);
     }
