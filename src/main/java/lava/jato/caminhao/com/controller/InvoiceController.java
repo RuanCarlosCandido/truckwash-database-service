@@ -21,7 +21,7 @@ public class InvoiceController {
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Invoice saveInvoice(@RequestBody Invoice invoice) {
+    public Invoice saveInvoice(@RequestBody Invoice invoice) throws IOException {
         return invoiceService.saveInvoice(invoice);
     }
 
