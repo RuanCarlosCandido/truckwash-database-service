@@ -7,6 +7,7 @@ import lava.jato.caminhao.com.repository.TruckRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -26,7 +27,7 @@ public class TruckService {
     TruckRepository repo;
 
     public List<Truck> getAllTrucks() {
-        return repo.findAll();
+        return repo.findAll(Sort.by(Sort.Direction.ASC, "nextWash"));
     }
 
     public Truck addTruck(Truck truck) throws IOException {
